@@ -17,8 +17,13 @@ class Solution {
     public TreeNode removeLeafNodes(TreeNode root, int target) {
         if(root == null)
             return null;
-        root.left = removeLeafNodes(root.left, target);
-        root.right = removeLeafNodes(root.right, target);
+        root = inorder(root, target);
+        return root;
+    }
+    TreeNode inorder(TreeNode root, int target){
+        if(root == null)    return null;
+        root.left = inorder(root.left, target);
+        root.right = inorder(root.right, target);
         if(root.left == null && root.right == null){
             if(root.val == target)
                 root = null;
