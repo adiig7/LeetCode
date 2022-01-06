@@ -115,7 +115,6 @@ class GfG {
 class Tree
 {
     //Function to count number of nodes in BST that lie in the given range.
-            int count = 0;
 
     int getCount(Node root,int l, int h)
     {
@@ -123,10 +122,12 @@ class Tree
         return helper(root, l, h);
     }
     int helper(Node root, int l, int h){
-        if(root == null)    return count;
-        if(root.data >= l && root.data <= h)    count++;
-        helper(root.left, l, h);
-        helper(root.right, l, h);
-        return count;
+        if(root == null)    return 0;
+        if(root.data >= l && root.data <= h) 
+            return 1+ helper(root.left, l, h) + helper(root.right, l, h);
+        else if(root.data > h)
+           return  helper(root.left, l, h);
+        else 
+            return helper(root.right, l, h);
     }
 }
