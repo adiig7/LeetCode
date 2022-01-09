@@ -2,11 +2,6 @@ class Solution {
     public int largestRectangleArea(int[] heights) {
         int[] right = rightBoundary(heights);
         int[] left = leftBoundary(heights);
-        for(int i = 0; i < right.length; i++)
-            System.out.println(right[i]);
-        System.out.println("abc");
-        for(int i = 0; i < left.length; i++)
-            System.out.println(left[i]);
         int maxArea = Integer.MIN_VALUE;
         for(int i = 0; i < heights.length; i++){
             int width = right[i] - left[i] - 1;
