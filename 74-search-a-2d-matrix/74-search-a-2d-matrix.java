@@ -8,6 +8,8 @@ class Solution {
             for(int j = 0; j < matrix[i].length; j++){
                 if(matrix[i][j] == target)
                     return true;
+                if(matrix[i][j] > target)
+                    return false;
             }
         }
         return false;
