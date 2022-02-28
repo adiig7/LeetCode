@@ -123,26 +123,27 @@ class Solution
     boolean check(Node root)
     {
 	// Your code here
-	int level = 0, res = 0;
-	boolean checked = false;
-	Queue<Node> q = new LinkedList<>();
-	q.add(root);
-	while(!q.isEmpty()){
-	    int size = q.size();
-	    for(int i = 0; i < size; i++){
-	         Node temp = q.poll();
-	        if(temp.left == null && temp.right == null && !checked){
-	            res = level;
-	            checked = true;
-	        }
-    	    if(temp.left != null)
-    	        q.add(temp.left);
-    	    if(temp.right != null)
-    	        q.add(temp.right);
-	    }
-	    level++;
-	}
-	if(res+1 == level)  return true;
-	else    return false;
+    int level = 0, res = 0;
+    boolean checked = false;
+    Queue<Node> q = new LinkedList<>();
+    q.add(root);
+    while(!q.isEmpty()){
+        int n = q.size();
+        for(int i = 0; i < n; i++){
+            Node temp = q.poll();
+            if(temp.left == null && temp.right == null && !checked){
+                res = level;
+                checked = true;
+            }
+            if(temp.left != null)
+                q.add(temp.left);
+            if(temp.right != null)
+                q.add(temp.right);
+        }
+        level++;
     }
+    if(res+1 == level)  return true;
+    else
+        return false;
+}
 }
